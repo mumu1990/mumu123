@@ -1,39 +1,92 @@
 package com.tangyan.zhufengfm.app;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.widget.RadioGroup;
+import android.widget.TabHost;
+import com.tangyan.zhufengfm.app.fragments.CustomFragment;
+import com.tangyan.zhufengfm.app.fragments.DiscoverFragment;
+import com.tangyan.zhufengfm.app.fragments.DownloadTingFragment;
+import com.tangyan.zhufengfm.app.fragments.ProfileFragment;
 
+/**
+ * 主界面
+ */
+public class MainActivity extends FragmentActivity implements RadioGroup.OnCheckedChangeListener {
 
-public class MainActivity extends ActionBarActivity {
+    private DiscoverFragment discoverFragment;
+    private CustomFragment customFragment;
+    private DownloadTingFragment downloadTingFragment;
+    private ProfileFragment profileFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        RadioGroup tabBar = (RadioGroup) findViewById(R.id.main_tab_bar);
+
+        tabBar.setOnCheckedChangeListener(this);
+
+        tabBar.check(R.id.main_tab_item_discover);
+
     }
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        FragmentManager manager = getSupportFragmentManager();
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        FragmentTransaction transaction = manager.beginTransaction();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        Fragment fragment = null;
+
+        switch (checkedId){
+            case R.id.main_tab_item_discover:
+
+                if (discoverFragment == null) {
+                    discoverFragment = new DiscoverFragment();
+                }
+
+                fragment = discoverFragment;
+
+                break;
+            case R.id.main_tab_item_custom:
+
+                if (customFragment == null) {
+                    customFragment = new CustomFragment();
+                }
+
+                fragment = customFragment;
+
+                break;
+            case R.id.main_tab_item_download:
+                if (downloadTingFragment == null) {
+                    downloadTingFragment = new DownloadTingFragment();
+                }
+
+                fragment = downloadTingFragment;
+
+                break;
+            case R.id.main_tab_item_profile:
+                if (profileFragment == null) {
+                    profileFragment = new ProfileFragment();
+                }
+
+                fragment = profileFragment;
+
+                break;
         }
 
-        return super.onOptionsItemSelected(item);
+        transaction.replace(R.id.main_fragment_container,fragment);
+
+        transaction.commit();
     }
 }

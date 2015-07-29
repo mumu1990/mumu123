@@ -8,6 +8,28 @@ GuideActivity  教程页
 
 MainActivity   主界面
 
+Fragment内容
+
+    DiscoverFragment      “发现”栏目界面
+
+        子栏目 Fragment
+
+            DiscoverRecommendFragment 推荐子栏目
+
+            DiscoverCategoryFragment  分类子栏目
+
+            DiscoverLiveFragment      直播子栏目
+
+            DiscoverRankingFragment   榜单子栏目
+
+            DiscoverAnchorFragment    主播子栏目
+
+    CustomFragment        “定制听”栏目界面
+
+    DownloadTingFragment  “下载听”栏目界面
+
+    ProfileFragment       “我”栏目界面
+
 
 //////////////////////////////////////
 
