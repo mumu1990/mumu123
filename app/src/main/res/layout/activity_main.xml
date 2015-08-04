@@ -25,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:background="#ffffb976"
             >
 
         <RadioButton
@@ -32,6 +33,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:button="@drawable/home_discover"
+                android:checked="true"
                 android:text="发现"
                 />
 
@@ -41,6 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="定制听"
+                android:button="@drawable/home_dingzhi"
                 />
 
         <RadioButton
@@ -56,6 +60,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:button="@drawable/home_download"
                 android:text="下载听"
                 />
 
@@ -64,6 +69,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:button="@drawable/home_me"
                 android:text="我"
                 />
 

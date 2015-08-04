@@ -1,13 +1,23 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.tangyan.zhufengfm.app.fragments.DiscoverFragment">
+              android:orientation="horizontal"
+             tools:context="com.mumu.zhufengfm.app.fragments.DiscoverFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/discover_recommend_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
+            android:layout_height="match_parent"/>
 
-</FrameLayout>
+    <!--<ListView-->
+            <!--android:id="@+id/discover_recommend_list"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:dividerHeight="6dp"-->
+            <!--android:divider="#3999"-->
+            <!-->-->
+
+    <!--</ListView>-->
+
+</LinearLayout>

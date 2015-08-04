@@ -9,3 +9,34 @@
 2. 网络模块
 
     1)联网工具类
+
+
+3.后台的数据请求流程
+
+    1）定义实体类
+    2）实体类内部的解析
+    3）定义异步任务，
+    4）定义实际联网操作方法：url ，参数等
+    5）TaskResult.data返回JSONObject
+    6）Activity或Fragment启动异步任务，编写TaskCallback的回调
+    7）收到TaskResult.data，数据JSON解析，DataParser 实现 JSON解析
+    8）DataParser 返回实际数据对象，采用实体类解析自己的JSON
+    9）更新数据与UI
+
+  4.发现栏目的推荐页面
+
+    排列顺序：
+
+    焦点图：focusImages 数据
+    小编推荐：editorRecommendAlbums 数据
+    精品听单：specialColumn 数据
+    发现新奇：discoveryColumns 数据
+    热门推荐：hotRecommends数据
+
+    内容展示：可以参考两种实现方式
+    1）使用ListView实现复杂的多布局复用的条目展示
+    2）使用ScrollView 通过代码进行动态的添加
+
+    确认使用listView实现。
+    对于推荐栏目的Adapter直接传递一个对象，
+    内部包含不同的数据，通过这个对象，内部再加载ListView
